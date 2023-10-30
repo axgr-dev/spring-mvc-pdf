@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="|Invoice ${invoice.number}|"></title>
+    <link href="styles.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+<div class="logo">
+    <img src="logo.png" alt="ACME, Inc." width="120">
+</div>
+<div class="sender">ACME, Inc. &middot; The Road 123 &middot; 10101 Smallville</div>
+<div class="address">
+    <p>Jane Doe</p>
+    <p>742 Evergreen Terrace</p>
+    <p>Springfield</p>
+</div>
+<div class="invoice-number" th:text="|Invoice ${invoice.number}|"></div>
+<div class="invoice-date" th:text="|Invoice date: ${#temporals.format(invoice.date, 'dd.MM.yyyy')}|"></div>
+
+<div class="main">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim odio, sagittis vitae lectus eu, semper
+        vestibulum urna. Quisque molestie, nisl a dictum ultricies, nunc metus cursus felis, fringilla placerat nunc
+        dolor in diam. Praesent eu dolor quis justo ultrices cursus. Morbi ultrices nunc id diam egestas facilisis.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim odio, sagittis vitae lectus eu, semper
+        vestibulum urna. Quisque molestie, nisl a dictum ultricies, nunc metus cursus felis, fringilla placerat nunc
+        dolor in diam. Praesent eu dolor quis justo ultrices cursus. Morbi ultrices nunc id diam egestas facilisis.
+    </p>
+    <p>
+        Invoice amount: <span class="invoice-amount" th:text="${#numbers.formatCurrency(invoice.amount)}"></span>
+    </p>
+</div>
+
+</body>
+</html>
